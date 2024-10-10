@@ -1,10 +1,11 @@
-# 꼭 다시 풀어보기
 N = int(input())
-arr = list(map(int, input().split()))
+arr = [0] + list(map(int, input().split()))
 
-dp = [1] * (N+1)
+dp = [0] * 1001
 
-for i in range(1, N):
+dp[1] = 1
+
+for i in range(2,N+1):
   for j in range(i):
     if arr[j] < arr[i]:
       dp[i] = max(dp[i], dp[j] + 1)
